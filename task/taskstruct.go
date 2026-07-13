@@ -2,6 +2,7 @@ package task
 
 type Task struct{
 	Id int `json:"id"`
-	Task string `json:"task"`
+	Title string `json:"title"`
 	Completed bool `json:"completed"`
+	Priority int `json:"priority"`
 }

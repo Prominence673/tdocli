@@ -6,7 +6,7 @@ import(
  "encoding/json"
 )
 
-func Read[T any](path string) ([]T, error){
+func read[T any](path string) ([]T, error){
  d,err := os.ReadFile(path)
  if err != nil {
   return nil, fmt.Errorf("Error : couldn't read json file. %w", err)
@@ -18,11 +18,14 @@ func Read[T any](path string) ([]T, error){
  return data, nil
 }
 
-func Write[T any](path string, data []T) error{
+func write[T any](path string, data []T) error{
   ser, err := json.MarshalIndent(data,""," ")
   if err != nil {
    return fmt.Errorf("Error : couldn't serialization data. %w", err)
   }
+  return os.WriteFile(path, ser, 0644)
+}
 
-  return os.WriteFile(path, data, 0644)
+func delete(path string) error {
+ return os.Remove(path)
 }

@@ -1,13 +1,7 @@
 package main
 
-import (
- "fmt";
- //"sync"
- "tdocli/task"
- //"tdocli/cmd"
-)
+import "tdocli/cmd"
 
-func main(){
- t := task.GetAll()
- fmt.Println("json ", t[0].Task)
+func main() {
+	cmd.Execute()
 }
