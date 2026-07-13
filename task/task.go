@@ -54,6 +54,25 @@ func Add(t string, p int) error{
  return write(path, task)
 }
 
+func Edit(title string, id int) error{
+ path := "task.json"
+ task,err := read[Task](path)
+ if err != nil {
+  if os.IsNotExist(err) || task == nil {
+   return err
+  } else{
+   return err
+  }
+ }
+ for i, t := range task {
+  if t.Id == id {
+   task[i].Title = title
+   break
+  }
+ }
+ return write(path, task)
+}
+
 func RemoveById(id int) error{
  path := "task.json"
  task,err := read[Task](path)

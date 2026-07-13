@@ -25,7 +25,7 @@
  },
  {
   "id": 5,
-  "title": "Probar Docker Compose en local",
+  "title": "Probar Docker Compose",
   "completed": true,
   "priority": 0
  },
