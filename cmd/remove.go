@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 	"strconv"
-	"tdocli/task"
+	"github.com/Prominence673/tdocli/task"
 	"github.com/spf13/cobra"
 )
 

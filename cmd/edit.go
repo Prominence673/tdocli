@@ -4,7 +4,7 @@ import (
 	"github.com/spf13/cobra"
 	"fmt"
 	"strconv"
-	"tdocli/task"
+	"github.com/Prominence673/tdocli/task"
 )
 
 var editCmd = &cobra.Command{

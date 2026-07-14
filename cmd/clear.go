@@ -3,7 +3,7 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 	"fmt"
-	"tdocli/task"
+	"github.com/Prominence673/tdocli/task"
 )
 
 var clearCmd = &cobra.Command{

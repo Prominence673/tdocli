@@ -1,6 +1,6 @@
 package main
 
-import "tdocli/cmd"
+import "github.com/Prominence673/tdocli/cmd"
 
 func main() {
 	cmd.Execute()

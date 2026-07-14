@@ -1,4 +1,4 @@
-module tdocli
+module github.com/Prominence673/tdocli
 
 go 1.25.0
 
