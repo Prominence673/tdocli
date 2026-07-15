@@ -4,13 +4,30 @@ import (
  "os";
  "strings"
  "fmt"
+ "path/filepath"
 )
 
+var filename = "task.json"
+
+func SetFilename(path string) error {
+	path = strings.TrimSpace(path)
+	if path == ""{
+		return fmt.Errorf("path cannot be empty")
+	}
+
+	if filepath.Ext(path) == "" {
+		filename = path + ".json"
+	} else {
+		filename = path
+	}
+	return nil
+}
+
 func getTasks() ([]Task, error) {
-	return read[Task]("task.json")
+	return read[Task](filename)
 }
 func saveTask(task []Task) error {
-	return write("task.json", task)
+	return write(filename, task)
 }
 func fixid(task []Task) []Task {
 	if len(task) == 0 {
@@ -83,14 +100,23 @@ func Add(t string, p int) error{
 }
 
 func Export(path string) error{
- back := "task.json"
+ back := filename
  var err error
  if _, err := os.Stat(back); err != nil {
   if os.IsNotExist(err) {
    return err
   } 
  }
- err = os.Rename(back, path+".json")
+ path = strings.TrimSpace(path)
+ if path == "" {
+  return fmt.Errorf("Path is required")
+ }
+ if filepath.Ext(path) == "" {
+ 	filename = path + ".json"
+ } else {
+ 	filename = path
+ }
+ err = os.Rename(back, path)
  if err != nil {
   return err
  }
@@ -114,7 +140,7 @@ func Edit(title string, id int) error{
   }
  }
  if !found {
-  return fmt.Errorf("task not found")
+  return fmt.Errorf("Task not found")
  }
  return saveTask(task)
 }
@@ -133,7 +159,7 @@ func RemoveById(id int) error{
   }
  }
  if !found {
-  return fmt.Errorf("task not found")
+  return fmt.Errorf("Task not found")
  }
  task = fixid(task)
  return saveTask(task)
@@ -154,7 +180,7 @@ func RemoveByTask(taskt string) error{
   }
  }
  if !found {
-  return fmt.Errorf("task not found")
+  return fmt.Errorf("Task not found")
  }
  task = fixid(task)
  return saveTask(task)
@@ -174,7 +200,7 @@ func MarkCompleted(id int) error{
   }
  }
  if !found {
-  return fmt.Errorf("task not found")
+  return fmt.Errorf("Task not found")
  }
  return saveTask(task)
 }
@@ -193,7 +219,7 @@ func Undo(id int) error{
   }
  }
  if !found {
-  return fmt.Errorf("task not found")
+  return fmt.Errorf("Task not found")
  }
  return saveTask(task)
 }
