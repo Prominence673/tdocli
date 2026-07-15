@@ -1,3 +1,11 @@
+## License
+
+MIT
+
+![Go](https://img.shields.io/badge/Go-1.25-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-orange)
+
 # TDOCLI
 
 A lightweight and fast task manager written in Go.
@@ -69,11 +77,3 @@ tasker --file work.json list
 - Go
 - Cobra
 - Lip Gloss
-
-## License
-
-MIT
-
-![Go](https://img.shields.io/badge/Go-1.25-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-orange)
