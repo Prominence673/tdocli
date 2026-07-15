@@ -32,6 +32,8 @@ go install github.com/Prominence673/tdocli@latest
 
 ## Usage
 
+![Demo](demo.gif)
+
 ```bash
 tasker add "Learn Go"
 ```
